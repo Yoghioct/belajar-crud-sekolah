@@ -19,6 +19,10 @@
     <x-nav.link route="admin.settings" icon="wrench-screwdriver">{{ __('System Settings') }}</x-nav.link>
 @endcan
 
+<x-nav.divider>{{ __('Master Data') }}</x-nav.divider>
+
+<x-nav.link route="admin.master-data.sekolah-jenjang.index" icon="academic-cap">{{ __('Sekolah Jenjang') }}</x-nav.link>
+
 <x-nav.divider>{{ __('Account') }}</x-nav.divider>
 
 @can('view_users')

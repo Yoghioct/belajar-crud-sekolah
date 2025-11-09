@@ -9,6 +9,7 @@ use App\Livewire\Admin\AuditTrails;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Roles\Edit;
 use App\Livewire\Admin\Roles\Roles;
+use App\Livewire\Admin\SekolahJenjang\SekolahJenjang as SekolahJenjangComponent;
 use App\Livewire\Admin\Settings\Settings;
 use App\Livewire\Admin\Users\EditUser;
 use App\Livewire\Admin\Users\ShowUser;
@@ -46,6 +47,12 @@ Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'active
         Route::get('/', Users::class)->name('admin.users.index');
         Route::get('{user}/edit', EditUser::class)->name('admin.users.edit');
         Route::get('{user}', ShowUser::class)->name('admin.users.show');
+    });
+
+    Route::prefix('master-data')->group(function () {
+        Route::prefix('sekolah-jenjang')->group(function () {
+            Route::get('/', SekolahJenjangComponent::class)->name('admin.master-data.sekolah-jenjang.index');
+        });
     });
 });
 
